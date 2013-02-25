@@ -1,4 +1,7 @@
 TaxAdvisor::Application.routes.draw do
+  resources :users
+
+
   get "home/index"
   get "home/about_us"
   get "home/our_clients"
