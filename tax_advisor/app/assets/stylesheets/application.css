@@ -16,9 +16,11 @@
     margin-top: 30px;
     background-color: #150517;
     height: 60px;
+    bottom: 0px;
+    width:95%;
 }
 .credit {
-    margin-bottom: 20px;
+    
     margin-left: 0;
     margin-right: 0;
     margin-top: 20px;
