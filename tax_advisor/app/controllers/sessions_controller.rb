@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
     
     if params[:email].include?('@')
       user = User.find_by_email(params[:email])
-    else
-      user = User.find_by_username(params[:email])
+#    else
+#      user = User.find_by_username(params[:email])
     end
     
     if user && user.authenticate(params[:password])

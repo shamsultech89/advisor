@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :account_type_id, :email, :first_name, :last_name, :password,:password_confirmation
+  attr_accessible :account_type_id, :email, :first_name, :last_name, :password, :password_confirmation
   
   has_secure_password
   
   belongs_to :account_type
+  
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
   
   validates :email, :presence => true, :uniqueness => true
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
@@ -11,6 +14,8 @@ class User < ActiveRecord::Base
   validates :password, :presence => true, :on => :create
   validates_size_of :password, :within => 6..15, :on => :create
   before_create { generate_token(:auth_token) }
+  
+  validates :account_type_id, :presence => true
   
   def send_password_reset
     generate_token(:password_reset_token)
