@@ -1,6 +1,12 @@
 TaxAdvisor::Application.routes.draw do
-  resources :users
+  
+  get "sign_up" => "users#new", :as => "sign_up"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "log_out" => "sessions#destroy", :as => "log_out"
 
+  resources :users
+  resources :sessions
+  resources :password_resets
 
   get "home/index"
   get "home/about_us"
@@ -9,6 +15,8 @@ TaxAdvisor::Application.routes.draw do
   get "home/services"
   get "home/contacts"
 
+  root :to => 'home#index'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -58,7 +66,7 @@ TaxAdvisor::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  
 
   # See how all your routes lay out with "rake routes"
 
