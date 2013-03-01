@@ -29,6 +29,7 @@
               <li><%= link_to "SERVICES", home_services_path %></li>
               <li><%= link_to "CONTACTS", home_contacts_path %></li>
               <% if is_login? %>
+                <li><%= link_to current_user.full_name, user_path(current_user) %></li>
                 <li><%= link_to "LOG OUT", logout_path %></li>
               <% else %>
                 <li><%= link_to "SIGN UP", signup_path %></li>

@@ -9,6 +9,12 @@
 require 'open-uri'
 require 'yaml'
 
+
+User.create!(:first_name => 'Shamsul', :last_name => 'Haque', :email => 'shamsulsham89@gmail.com',:password => 'shamsul',:password_confirmation => 'shamsul', :account_type_id => '1')
+User.create!(:first_name => 'Rahul', :last_name => 'Sharma',  :email => 'shamsultech89@gmail.com',:password => 'shamsul',:password_confirmation => 'shamsul', :account_type_id => '2')
+
+
+
 ACCOUNT_TYPE = ['Admin','Client']
 ACCOUNT_TYPE.each do |account_type|
    AccountType.create!(:name => account_type, :status => 1)

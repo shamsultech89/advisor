@@ -10,4 +10,13 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail :to => user.email, :subject => "Password Reset"
   end
+  
+  def compose_mail(mail)
+   
+    #raise mail.inspect
+    @mail = mail
+    attachments["#{mail.photo.original_filename}"] = File.read("#{mail.photo.path}")
+    mail(:to => "#{mail.email}", :subject => "#{mail.subject}")
+  end
+  
 end

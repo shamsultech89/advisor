@@ -17,6 +17,13 @@ class User < ActiveRecord::Base
   
   validates :account_type_id, :presence => true
   
+  
+  
+  
+  def full_name
+    "#{self.first_name }"+" "+ "#{self.last_name}".camelize
+  end
+  
   def send_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
