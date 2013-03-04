@@ -10,24 +10,34 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-  <body  style="background-color: #DFF0D8;">
+  <body  style="background-color: #FFF;">
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
+          <img src="/assets/logo.png"   style="height:50px;width:100px;" />
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <%= link_to "HOME", home_index_path, :class => 'brand' %>
-          <div class="nav-collapse">
+          <%#= link_to "HOME", home_index_path, :class => 'brand' %>
+          <div class="nav-collapse" style="float:right;">
             <ul class="nav">
+              <li><%= link_to "HOME", home_index_path %></li>
               <li><%= link_to "ABOUT US", home_about_us_path %></li>
-              <li><%= link_to "OUR CLIENTS", home_our_clients_path %></li>
-              <li><%= link_to "TAX GUIDE", home_tax_guide_path %></li>
               <li><%= link_to "SERVICES", home_services_path %></li>
-              <li><%= link_to "CONTACTS", home_contacts_path %></li>
+              <li><%= link_to "ALERTS", home_alert_path %></li>
+              <li><%= link_to "PAYMENTS", home_payment_path %></li>
+              <li><%= link_to "PRICING", home_pricing_path %></li>
+              <li><%= link_to "CONTACT US", home_contacts_path %></li>
               <% if is_login? %>
                 <li><%= link_to current_user.full_name, user_path(current_user) %></li>
                 <li><%= link_to "LOG OUT", logout_path %></li>
@@ -43,12 +53,23 @@
 
 
     <div class="container" id="container">
+    <div class="row">
 
+        <div class="span12">
+            <%= yield :header_image %>
+           
+        </div> 
+        <div class="span12" id="rotate"  style="background:#f0f0f0;color:red;margin-top: 3px;margin-bottom: 3px;padding-top:3px;padding-bottom:3px;">
+         <marquee id="FutureMarquee" onmouseup="this.style.cursor=" default''="" onmouseover="this.stop();" onmouseout="this.start();" truespeed="truespeed" scrollamount="1" scrolldelay="20" width="100%" style="font-weight:bold;color:#000; padding-top:2px; display:block;"> Market Pundit Money Making Mantra <strong style="color:green">|</strong> Market Pundit Money Making Mantra <strong style="color:green">|</strong> Market Pundit Money Making MantraMarket Pundit Money Making Mantra <strong style="color:green">|</strong> Market Pundit Money Making Mantra <strong style="color:green">|</strong> Market Pundit Money Making Mantra</marquee>
+        </div>
+    </div>
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
       <div class="row">
-        <div class="span12"><%= yield %></div>
+        <div class="span12">
+             <%= yield %>
+        </div>
       </div>
     </div>
 

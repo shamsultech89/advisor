@@ -46,15 +46,7 @@
         <%= f.password_field :password_confirmation, :class => 'text_field', :placeholder =>"Password Confirmaton" %>
       </div>
     </div>
-    <div class="control-group">
-      <%= f.label :account_type_id, :class => 'control-label' %>
-      <div class="controls">
-        Admin
-        <%= f.radio_button :account_type_id,1 %>
-        Client
-        <%= f.radio_button :account_type_id,2 %>
-      </div>
-    </div>
+    
 
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>

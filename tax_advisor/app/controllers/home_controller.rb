@@ -23,5 +23,14 @@ class HomeController < ApplicationController
   def contacts
     
   end
+  def payment
+
+  end
+  def alert
+
+  end
+  def pricing
+
+  end
    
 end

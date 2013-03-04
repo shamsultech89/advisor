@@ -17,6 +17,10 @@ TaxAdvisor::Application.routes.draw do
   get "home/tax_guide"
   get "home/services"
   get "home/contacts"
+  get "home/payment"
+  get "home/alert"
+  get "home/pricing"
+  
 
   root :to => 'home#index'
   

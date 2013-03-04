@@ -14,3 +14,36 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+$(document).ready(function($) {
+vinay();
+ 
+
+});
+
+function vinay(){
+   
+        var sayloud = $('#rotate');
+        var Start = 0;
+
+        var messages = [
+        'Another phrase to go',
+        'Here is another one',
+        'This is really long phrase to read and I want a smoth transition'
+
+        ];
+
+        setTimeout(rotatorCore, 3000);
+
+        function rotatorCore() {
+            Start = Start + 1;
+
+            if (Start >= messages.length)
+            Start = 0;
+
+            sayloud.find('span').text(messages[Start]);
+            setTimeout(rotatorCore, 2000);
+        }
+
+
+
+    }
